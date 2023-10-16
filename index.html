@@ -9,20 +9,47 @@
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
+  <style>
+    /* Add custom CSS for arranging the graphs */
+    .chart-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+      gap: 20px; /* Adjust the gap between graphs */
+    }
 
+    /* Apply CSS to each chart */
+    .chart {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-  
-<div id="choropleth_map"></div>
+  <div class="chart-container">
+    <div class="chart" id="choropleth_map"></div>
+    <div class="chart" id="Heat_map"></div>
+    <div class="chart" id="Gas_Emission"></div>
+    <div class="chart" id="Surface_Temp"></div>
+  </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
+    var spec1 = "js/choropleth_map.vg.json";
+    var spec2 = "js/Heatmap.vg.json";
+    var spec3 = "js/Gas_Emission.vg.json";
+    var spec4 = "js/Annual_Suraface_Temp.vg.json";
 
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-  
-</script>
-
+    vegaEmbed('#choropleth_map', spec1).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    vegaEmbed('#Heat_map', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    vegaEmbed('#Gas_Emission', spec3).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+    vegaEmbed('#Surface_Temp', spec4).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 </body>
 </html>
